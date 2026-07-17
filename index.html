@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Independent Identity Portal project." />
+  <title>Identity Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-space">
+    <div class="site-name">Identity Portal</div>
+    <div class="project-note">Independent project — not a government service</div>
+  </header>
+
+  <main>
+    <section id="authPage" class="page active">
+      <div class="login-shell">
+        <div class="login-heading-row">
+          <h1>Sign In</h1>
+          <span class="language">EN <b>|</b> MT</span>
+        </div>
+
+        <div class="login-divider"></div>
+
+        <section class="login-panel">
+          <h2>Sign in to your Identity Portal</h2>
+
+          <form id="signInForm">
+            <div class="field">
+              <label for="loginUsername">ID Number</label>
+              <input id="loginUsername" type="text" placeholder="Enter your ID number" required />
+            </div>
+
+            <div class="field">
+              <label for="loginPassword">Password</label>
+              <input id="loginPassword" type="password" placeholder="Enter your password" required />
+            </div>
+
+            <button class="primary-btn" type="submit">Sign In</button>
+            <p id="loginMessage" class="message error" aria-live="polite"></p>
+          </form>
+
+          <p class="login-note">
+            Independent Identity Portal project — not connected to any government service.
+          </p>
+        </section>
+      </div>
+    </section>
+
+    <section id="profilePage" class="page">
+      <div class="profile-top">
+        <button class="menu-btn" type="button" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <button id="headerPhotoButton" class="photo-button-small" type="button" aria-label="Change profile photo">
+          <img id="headerPhoto" alt="Profile" />
+        </button>
+
+        <div class="header-identity">
+          <strong id="headerName">Your name</strong>
+          <span id="headerRef">Reference number</span>
+        </div>
+
+        <button id="signOutBtn" class="sign-out-btn" type="button">Sign out</button>
+      </div>
+
+      <nav class="tabs">
+        <button class="tab active" type="button" data-tab="info">
+          <span class="tab-icon">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="20" r="9"></circle>
+              <path d="M17 49c2-11 8-17 15-17s13 6 15 17"></path>
+              <circle cx="32" cy="32" r="27"></circle>
+            </svg>
+          </span>
+          <span>MY INFO</span>
+        </button>
+
+        <button class="tab" type="button" data-tab="privacy">
+          <span class="tab-icon">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <rect x="14" y="18" width="36" height="26" rx="2"></rect>
+              <path d="M7 50h50"></path>
+              <path d="M25 31c4-6 10-6 14 0-4 6-10 6-14 0z"></path>
+            </svg>
+          </span>
+          <span>PRIVACY &amp;<br />SECURITY</span>
+        </button>
+
+        <button class="tab" type="button" data-tab="session">
+          <span class="tab-icon">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="26"></circle>
+              <path d="M25 24c1-7 13-8 15-1 2 8-8 8-8 15"></path>
+              <circle cx="32" cy="46" r="1.5"></circle>
+            </svg>
+          </span>
+          <span>SAVE LOGIN<br />INFO</span>
+        </button>
+      </nav>
+
+      <section id="infoTab" class="tab-panel active">
+        <div class="profile-card">
+          <button id="mainPhotoButton" class="main-photo-button" type="button" aria-label="Upload or change profile photo">
+            <img id="mainPhoto" alt="Profile" />
+            <span>Change photo</span>
+          </button>
+          <input id="photoInput" type="file" accept="image/*" hidden />
+
+          <div class="details-grid">
+            <article class="detail-card">
+              <button class="circle-icon" type="button" data-editor="identityEditor" aria-label="Edit identity details">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <rect x="14" y="18" width="36" height="28" rx="2"></rect>
+                  <circle cx="25" cy="31" r="5"></circle>
+                  <path d="M19 40c1-5 3-7 6-7s5 2 6 7"></path>
+                  <path d="M36 27h9M36 34h9"></path>
+                </svg>
+              </button>
+              <div class="detail-text">
+                <strong id="displayName">Tap icon to add name</strong>
+                <span id="displayReference">Tap icon to add reference number</span>
+              </div>
+
+              <div id="identityEditor" class="editor hidden">
+                <label for="editName">Full name</label>
+                <input id="editName" type="text" />
+
+                <label for="editReference">Reference number</label>
+                <input id="editReference" type="text" />
+
+                <button class="save-detail" type="button" data-save="identity">Save</button>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <button class="circle-icon" type="button" data-editor="birthEditor" aria-label="Edit date of birth">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <path d="M19 29h26v18H19z"></path>
+                  <path d="M24 29v-5h16v5"></path>
+                  <path d="M25 20c0-4 3-6 3-9 3 4 3 7 0 10"></path>
+                  <path d="M36 20c0-4 3-6 3-9 3 4 3 7 0 10"></path>
+                  <path d="M19 36c4 3 8 3 13 0 4 3 8 3 13 0"></path>
+                </svg>
+              </button>
+              <div class="detail-text">
+                <strong id="displayBirth">Tap icon to add date of birth</strong>
+              </div>
+
+              <div id="birthEditor" class="editor hidden">
+                <label for="editBirth">Date of birth</label>
+                <input id="editBirth" type="date" />
+                <button class="save-detail" type="button" data-save="birth">Save</button>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <button class="circle-icon" type="button" data-editor="emailEditor" aria-label="Edit email">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <rect x="12" y="19" width="40" height="28" rx="2"></rect>
+                  <path d="M14 22l18 15 18-15"></path>
+                </svg>
+              </button>
+              <div class="detail-text">
+                <strong id="displayEmail">Tap icon to add email</strong>
+              </div>
+
+              <div id="emailEditor" class="editor hidden">
+                <label for="editEmail">Email address</label>
+                <input id="editEmail" type="email" />
+                <button class="save-detail" type="button" data-save="email">Save</button>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <button class="circle-icon" type="button" data-editor="phoneEditor" aria-label="Edit phone number">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <path d="M22 13l9 11-6 6c4 8 7 11 15 15l6-6 11 9c-4 8-10 10-17 7-12-5-25-18-30-30-3-7-1-13 7-17z"></path>
+                </svg>
+              </button>
+              <div class="detail-text">
+                <strong id="displayPhone">Tap icon to add phone number</strong>
+              </div>
+
+              <div id="phoneEditor" class="editor hidden">
+                <label for="editPhone">Mobile number</label>
+                <input id="editPhone" type="tel" />
+                <button class="save-detail" type="button" data-save="phone">Save</button>
+              </div>
+            </article>
+
+            <article class="detail-card full">
+              <button class="circle-icon" type="button" data-editor="addressEditor" aria-label="Edit address">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <path d="M32 55s15-16 15-29a15 15 0 10-30 0c0 13 15 29 15 29z"></path>
+                  <circle cx="32" cy="26" r="5"></circle>
+                </svg>
+              </button>
+              <div class="detail-text">
+                <strong id="displayAddress">Tap icon to add address</strong>
+              </div>
+
+              <div id="addressEditor" class="editor hidden">
+                <label for="editAddress">Address</label>
+                <textarea id="editAddress" rows="3"></textarea>
+                <button class="save-detail" type="button" data-save="address">Save</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <section class="report">
+          <h2>Report an error</h2>
+          <p>If information is incorrect, tap the related icon and update the details.</p>
+          <a href="mailto:contact@example.com" class="primary-btn message-btn">Send us a message</a>
+        </section>
+
+        <section class="lock-section">
+          <h2>Confirm your information</h2>
+          <p>Once confirmed, your profile details and photo will be locked and cannot be edited.</p>
+          <button id="lockDetailsBtn" class="primary-btn lock-btn" type="button">Lock &amp; Confirm Details</button>
+          <p id="lockMessage" class="message" aria-live="polite"></p>
+        </section>
+
+      </section>
+
+      <section id="privacyTab" class="tab-panel">
+        <div class="simple-panel">
+          <h2>Privacy &amp; Security</h2>
+          <p>Your account and profile information are stored only in this browser using local storage.</p>
+        </div>
+      </section>
+
+      <section id="sessionTab" class="tab-panel">
+        <div class="simple-panel">
+          <h2>Save Login Info</h2>
+          <p>Save this login session so refreshing or reopening the page keeps you on the profile section.</p>
+          <button id="saveLoginBtn" class="primary-btn session-button" type="button">Save Login Info</button>
+          <p id="sessionMessage" class="message" aria-live="polite"></p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    Identity Portal is an independent project and is not connected to a government service.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
